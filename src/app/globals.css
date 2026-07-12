@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: 'Instrument Serif', ui-serif, serif;
+  --font-body: 'Inter', ui-sans-serif, system-ui;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-ink-950 text-white font-body antialiased;
+  background-image: radial-gradient(circle at 15% 0%, rgba(124, 140, 248, 0.06), transparent 45%),
+    radial-gradient(circle at 85% 10%, rgba(245, 166, 35, 0.05), transparent 40%);
+  background-attachment: fixed;
+}
+
+::selection {
+  background: rgba(245, 166, 35, 0.3);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.skeleton {
+  @apply animate-pulse bg-white/[0.06] rounded-lg;
+}
